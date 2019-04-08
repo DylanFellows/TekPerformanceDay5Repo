@@ -1,8 +1,8 @@
-package com.fellows.day4.dao;
+package com.fellows.employee.dao;
 
 import java.util.List;
 
-import com.fellows.day4.model.Employee;
+import com.fellows.employee.model.Employee;
 
 public interface EmployeeDao {
 	public List<Employee> getAllEmployees();

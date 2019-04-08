@@ -1,4 +1,4 @@
-package com.fellows.day4;
+package com.fellows.employee;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
