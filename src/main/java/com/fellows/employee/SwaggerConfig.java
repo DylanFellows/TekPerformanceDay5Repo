@@ -1,4 +1,4 @@
-package com.fellows.day6;
+package com.fellows.employee;
 
 import static springfox.documentation.builders.PathSelectors.regex;
 
@@ -17,7 +17,7 @@ public class SwaggerConfig {
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2).select()
-                .apis(RequestHandlerSelectors.basePackage("com.fellows.day6.controller")).paths(regex("/api.*"))
+                .apis(RequestHandlerSelectors.basePackage("com.fellows.employee.controller")).paths(regex("/api.*"))
                 .build();
     }
 

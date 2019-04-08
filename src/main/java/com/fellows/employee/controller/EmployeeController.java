@@ -1,4 +1,4 @@
-package com.fellows.day6.controller;
+package com.fellows.employee.controller;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fellows.day6.model.Employee;
-import com.fellows.day6.service.EmployeeService;
+import com.fellows.employee.model.Employee;
+import com.fellows.employee.service.EmployeeService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

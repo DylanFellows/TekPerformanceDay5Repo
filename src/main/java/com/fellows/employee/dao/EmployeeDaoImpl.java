@@ -1,11 +1,11 @@
-package com.fellows.day6.dao;
+package com.fellows.employee.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.fellows.day6.model.Employee;
+import com.fellows.employee.model.Employee;
 
 @Repository
 public class EmployeeDaoImpl implements EmployeeDao {

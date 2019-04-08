@@ -1,4 +1,4 @@
-package com.fellows.day6.test.controller;
+package com.fellows.employee.test.controller;
 
 import static com.jayway.restassured.RestAssured.given;
 
