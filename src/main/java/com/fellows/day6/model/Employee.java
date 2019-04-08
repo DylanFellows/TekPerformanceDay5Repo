@@ -1,4 +1,4 @@
-package com.fellows.day4.model;
+package com.fellows.day6.model;
 
 import java.io.Serializable;
 
