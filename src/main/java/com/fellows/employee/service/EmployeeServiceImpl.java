@@ -12,9 +12,10 @@ import com.fellows.employee.model.Employee;
 public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
-	EmployeeDao dao;
+	EmployeeDao repository;
 
-	public List<Employee> getAllEmployees() {
-		return dao.getAllEmployees();
+	@Override
+	public List<Employee> findAll() {
+	     return (List<Employee>) repository.findAll();
 	}
 }
