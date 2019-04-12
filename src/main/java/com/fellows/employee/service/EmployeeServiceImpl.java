@@ -15,8 +15,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	EmployeeDao repository;
 
 	@Override
-	public List<Employee> getAllEmployees() {
-		 List<Employee> employee = (List<Employee>) repository.findAll();
-	     return employee;
+	public List<Employee> findAll() {
+	     return (List<Employee>) repository.findAll();
 	}
 }

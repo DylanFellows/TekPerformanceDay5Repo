@@ -1,34 +1,46 @@
 package com.fellows.employee.test.controller;
 
-import static com.jayway.restassured.RestAssured.given;
-
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
-import com.fellows.employee.controller.EmployeeController;
 import com.fellows.employee.service.EmployeeService;
+import com.fellows.employee.test.config.WebTestConfig;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = EmployeeControllerTest.class)
+@ContextConfiguration(classes = { WebTestConfig.class })
+@WebAppConfiguration
 public class EmployeeControllerTest {
+	
+	private MockMvc mockMvc;
 
-	@Mock
+	@Autowired
 	EmployeeService employeeService;
 	
-	@InjectMocks
-	EmployeeController controller;
-	
-	final static String HOST = "http://localhost:8080";
-	final static String API = "/api";
-	final static String GET_ALL_EMPLOYEES_PATH = HOST + API + "/getAllEmployees";
+	@Autowired
+	private WebApplicationContext webApplicationContext;
 
-	@Test
-	public void getAllEmployees() {
-		given().when().get(GET_ALL_EMPLOYEES_PATH).then().statusCode(200);
+	@Before
+	public void setUp() {
+		Mockito.reset(employeeService);
+		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 	}
 
+	@Test
+	public void getAllEmployees() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/api").contentType(MediaType.APPLICATION_JSON))
+		.andExpect(MockMvcResultMatchers.status().isOk());
+		Mockito.verify(employeeService, Mockito.times(1)).findAll();
+	}
 }
